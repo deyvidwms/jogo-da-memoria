@@ -8,3 +8,17 @@
 body {
   background-color: #F2F2F2;
 }
+
+#localCartoes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cartao {
+  background-color: gray;
+  border-radius: .5em;
+  margin: .75em;
+  padding: 1em;
+  width: fit-content;
+  font-size: 1.2em;
+}
