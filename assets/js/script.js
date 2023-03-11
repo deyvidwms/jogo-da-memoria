@@ -1,55 +1,44 @@
-"use strict";
-
-const EMOJIS = [
-  '😀', '😃', '😄', '😁', '😆', '😅', '😂', '☺️', '😊', '😇', '🙃', '😉', '😌', '😍', '😘',
-  '😗', '😙', '😚', '😋', '😛', '😝', '😜', '😎', '😏', '😒', '😞', '😔', '😟', '😕', '☹️',
-  '😣', '😖', '😫', '😩', '😢', '😭', '😠', '😡', '😳', '😱', '😨', '😰', '😥', '😓', '😶',
-  '😐', '😑', '😯', '😦', '😧', '😮', '😲', '😴', '😪', '😵', '😷', '💩', '☠️', '👽', '🤖',
-];
-
-function novoCartao(texto, status) {
-  return { texto, status };
+window.onload = () => {
+  init();
 }
 
-function desvirar(cartoes) {
-  for (const cartao of cartoes) {
-    cartao.status = false;
-  }
+const init = () => {
+  const EMOJIS = [
+    '😀', '😃', '😄', '😁', '😆', '😅', '😂', '☺️', '😊', '😇', '🙃', '😉', '😌', '😍', '😘',
+    '😗', '😙', '😚', '😋', '😛', '😝', '😜', '😎', '😏', '😒', '😞', '😔', '😟', '😕', '☹️',
+    '😣', '😖', '😫', '😩', '😢', '😭', '😠', '😡', '😳', '😱', '😨', '😰', '😥', '😓', '😶',
+    '😐', '😑', '😯', '😦', '😧', '😮', '😲', '😴', '😪', '😵', '😷', '💩', '☠️', '👽', '🤖',
+  ];
+
+  showCards(EMOJIS);
 }
 
-function virarCarta(cartoes, index) {
-  let cartao = cartoes[index];
-  if (cartao.status == "oculto") {
-    cartao.status = "virando";
-  } else {
-    cartao.status = "oculto"
-  }
-
-  printarCartoes(cartoes);
+const showCards = (emojis) => {
+  const cardLocations = document.getElementById('cardLocations');
+  emojis.forEach( element => cardLocations.innerHTML += generateCard(element) + generateCard(element));
 }
 
-function printarCartoes(cartoes) {
-  let localCartoes = document.getElementById('localCartoes');
-  localCartoes.innerHTML = "";
+const generateCard = (icon) => {
+  const reponseElm = `
+    <div class="flip-card" data-active="off" onClick="handleClick(this)">
+      <div class="flip-card--inner">
+        <div class="flip-card--front">
+          <img src="./assets/images/unknow.png" alt="Imagem Interrogação">
+        </div>
+        <div class="flip-card--back">
+          <p class="flip-card--icon">${icon}</p>
+        </div>
+      </div>
+    </div>
+  `;
 
-  cartoes.forEach((cartao, index) => {
-    let div = document.createElement('div');
-    div.id = `${index}`;
-
-    div.onclick = () => { virarCarta(cartoes, index) };
-
-    div.className = `cartao ${cartao.status}`;
-    if (cartao.status != "oculto") {
-      div.innerText = cartao.texto;
-    }
-
-    localCartoes.appendChild(div);
-
-    if (cartao.status == "virando") {
-      cartao.status = "mostrando";
-    }
-  });
+  return reponseElm;
 }
 
-let cartoes = EMOJIS.map((emoji) => novoCartao(emoji, "oculto"));
-printarCartoes(cartoes);
+const handleClick = ( element ) => {
+  const isActive = element.getAttribute('data-active') === "on"; 
+  element.setAttribute('data-active', isActive ? "off" : "on");
+
+  // TODO: colocar verificação se é igual ao anterior
+
+}

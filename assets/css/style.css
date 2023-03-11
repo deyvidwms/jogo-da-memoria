@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Monocraft';
+  src: url('../fonts/Monocraft.ttf') format('truetype');
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -9,41 +14,23 @@ body {
   background-color: #F2F2F2;
 }
 
-#localCartoes {
+.content {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 10px;
+}
+
+.title {
+  font-size: 3rem;
+  font-family: 'Monocraft'; 
+  margin-bottom: 32px;
+}
+
+#cardLocations {
+  display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-}
-
-@keyframes center-animate {
-  0% {
-    transform: scaleX(0);
-  }
-
-  100% {
-    transform: scaleX(1);
-  }
-}
-
-.cartao {
-  border: 2px solid #0F0F0F;
-  border-radius: .5em;
-  margin: .75em;
-  padding: 1em;
-  width: 3em;
-  height: 3em;
-  font-size: 1.2em;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, .3);
-}
-
-.mostrando {
-  background-color: #BDD5EA;
-}
-
-.virando {
-  animation: center-animate 1s ease 1;
-  background-color: #BDD5EA;
-}
-
-.oculto {
-  background-color: #577399;
+  gap: 10px;
 }
