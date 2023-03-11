@@ -14,11 +14,36 @@ body {
   flex-wrap: wrap;
 }
 
+@keyframes center-animate {
+  0% {
+    transform: scaleX(0);
+  }
+
+  100% {
+    transform: scaleX(1);
+  }
+}
+
 .cartao {
-  background-color: gray;
+  border: 2px solid #0F0F0F;
   border-radius: .5em;
   margin: .75em;
   padding: 1em;
-  width: fit-content;
+  width: 3em;
+  height: 3em;
   font-size: 1.2em;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, .3);
+}
+
+.mostrando {
+  background-color: #BDD5EA;
+}
+
+.virando {
+  animation: center-animate 1s ease 1;
+  background-color: #BDD5EA;
+}
+
+.oculto {
+  background-color: #577399;
 }
