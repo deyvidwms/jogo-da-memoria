@@ -3,6 +3,18 @@
   width: 100px;
   height: 100px;
   perspective: 1000px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.flip-card.done {
+  cursor: default;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .flip-card--inner {
@@ -12,10 +24,11 @@
   text-align: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px 0px rgba(0,0,0,0.2);
+  border-radius: 3px;
 }
 
-.flip-card.active .flip-card--inner,
+.flip-card.done .flip-card--inner,
 .flip-card[data-active="on"] .flip-card--inner {
   transform: rotateY(180deg);
 }
@@ -32,8 +45,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #bbb;
+  background-color: #FFF;
   color: black;
+  border-radius: 3px;
 }
 
 .flip-card--back {
@@ -43,6 +57,7 @@
   background-color: #2980b9;
   color: white;
   transform: rotateY(180deg);
+  border-radius: 3px;
 }
 
 .flip-card--back > .flip-card--icon {

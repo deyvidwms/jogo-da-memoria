@@ -11,7 +11,7 @@
 }
 
 body {
-  background-color: #F2F2F2;
+  background-image: url('../images/background.png');
 }
 
 .content {
@@ -22,10 +22,42 @@ body {
   margin: 50px 10px;
 }
 
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+}
+
 .title {
   font-size: 3rem;
   font-family: 'Monocraft'; 
   margin-bottom: 32px;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.current-score h1,
+.highscore h1,
+.attempts h1 {
+  font-size: 1.5rem;
+  font-family: 'Monocraft'; 
+  margin-bottom: 5px;
+}
+
+.current-score h3,
+.highscore h3,
+.attempts h3 {
+  font-size: 1.25rem;
+  font-family: 'Monocraft'; 
+  color: #AAA;
 }
 
 #cardLocations {
@@ -33,4 +65,5 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
+  max-width: 900px;
 }
